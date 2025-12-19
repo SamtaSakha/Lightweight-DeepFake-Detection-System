@@ -16,34 +16,35 @@ This project was developed as part of the VoiceGuardAI Internship Hiring Challen
 
  Dummy dataset generation for quick testing
 
-📁 Clean, scalable project structure
-Lightweight DeepFake Detection Model/
+Lightweight-DeepFake-Detection-Model/
 │
 ├── models/
-│   └── deepfake_cnn.pth
+│   └── deepfake_cnn.pth              # Trained CNN model weights
 │
 ├── src/
 │   ├── data/
-│   │   ├── create_dummy_data.py
-│   │   ├── dataset.py
-│   │   ├── frame_extractor.py
-│   │   ├── preprocessing.py
-│   │   └── run_frame_extraction.py
+│   │   ├── create_dummy_data.py      # Generates sample training data
+│   │   ├── dataset.py                # PyTorch Dataset class
+│   │   ├── frame_extractor.py        # Extracts frames from videos
+│   │   ├── preprocessing.py          # Image preprocessing utilities
+│   │   └── run_frame_extraction.py   # Script to extract frames
 │   │
 │   ├── train/
-│   │   ├── train.py
-│   │   └── evaluate.py
+│   │   ├── train.py                  # Model training logic
+│   │   └── evaluate.py               # Model evaluation script
 │   │
 │   ├── inference/
-│   │   ├── app.py
-│   │   ├── predict_image.py
-│   │   └── predict_video.py
+│   │   ├── app.py                    # Gradio web application
+│   │   ├── predict_image.py          # Image-based inference
+│   │   └── predict_video.py          # Video-based inference
 │   │
 │   └── __init__.py
 │
-├── quick_train.py
-├── requirements.txt
-└── README.md
+├── quick_train.py                    # Fast training script (demo use)
+├── requirements.txt                  # Project dependencies
+├── README.md                         # Project documentation
+└── .venv/                            # Virtual environment (ignored)
+
 
 ## 🧠 Model Architecture
 
