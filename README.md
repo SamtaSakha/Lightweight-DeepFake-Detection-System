@@ -80,3 +80,5 @@ FAKE ❌ → confidence > threshold
 UNCERTAIN 🤔 → low confidence
 
 ### ⚠️ The UNCERTAIN class is intentional to avoid false predictions when confidence is low.
+
+http://127.0.0.1:7860/ 
