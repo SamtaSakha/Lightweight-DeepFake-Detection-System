@@ -1,0 +1,104 @@
+# 📐 Mathematics Behind the Deepfake Detection Model
+
+This project is built on core mathematical concepts from **linear algebra, probability, and optimization**, which together enable the CNN to distinguish between **real** and **fake** images.
+
+---
+
+## 1️⃣ Linear Algebra (Core of CNNs)
+
+Images are represented as **multi-dimensional matrices (tensors)** of pixel values.
+
+An RGB image is represented as:
+
+\[
+X \in \mathbb{R}^{H \times W \times 3}
+\]
+
+Where:
+- \(H\) = height  
+- \(W\) = width  
+- \(3\) = RGB channels  
+
+### Convolution Operation
+
+Convolution applies learnable kernels to extract spatial features:
+
+\[
+(X * K)(i, j) = \sum_{m,n} X_{i+m,\,j+n} \cdot K_{m,n}
+\]
+
+This allows the model to extract features such as:
+- edges
+- textures
+- facial artifacts (critical for deepfake detection)
+
+---
+
+## 2️⃣ Convolution & Pooling Operations
+
+### Convolution Layers
+- Perform weighted sums over local neighborhoods
+- Capture local and hierarchical visual patterns
+
+### Max Pooling
+
+\[
+y = \max(x_1, x_2, \dots, x_n)
+\]
+
+Max pooling:
+- Reduces spatial dimensions
+- Makes the model invariant to small translations
+- Lowers computational complexity
+
+---
+
+## 3️⃣ Non-Linear Activation (ReLU)
+
+To introduce non-linearity, the **Rectified Linear Unit (ReLU)** is used:
+
+\[
+\text{ReLU}(x) = \max(0, x)
+\]
+
+This enables the network to:
+- Learn complex visual representations
+- Avoid vanishing gradient problems
+
+---
+
+## 4️⃣ Probability & Softmax Classification
+
+The final fully connected layer outputs **logits**:
+
+\[
+z = [z_{\text{real}}, z_{\text{fake}}]
+\]
+
+These logits are converted into probabilities using the **Softmax function**:
+
+\[
+P(y_i) = \frac{e^{z_i}}{\sum_{j} e^{z_j}}
+\]
+
+This produces:
+- \( P(\text{Real}) \)
+- \( P(\text{Fake}) \)
+
+---
+
+## 5️⃣ Decision Threshold
+
+The final prediction is made using probability thresholds:
+
+- **Fake** if  
+  \[
+  P(\text{Fake}) > 0.7
+  \]
+
+- **Real** if  
+  \[
+  P(\text{Real}) > 0.7
+  \]
+
+- **Otherwise** → **Uncertain**
