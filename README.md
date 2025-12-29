@@ -1,22 +1,35 @@
-# Lightweight-DeepFake-Detection-System
-A lightweight deepfake detection system built using PyTorch, OpenCV, and Gradio.
-The project detects whether an image frame (or video frame) is REAL, FAKE, or UNCERTAIN based on model confidence.
+#  Lightweight DeepFake Detection System
 
-This project was developed as part of the VoiceGuardAI Internship Hiring Challenge (Round 2).
+A lightweight DeepFake detection system built using **PyTorch**, **OpenCV**, and **Gradio**. The project detects whether an image frame (or video frame) is **REAL**, **FAKE**, or **UNCERTAIN** based on model confidence.
 
-##  Features
+---
 
- Lightweight CNN-based deepfake detector
+## 🚀 Features
 
- Image-based inference (video frames supported)
+* ⚡ Lightweight CNN-based DeepFake detector
+* 🖼️ Image-based inference (video frames supported)
+* 📊 Confidence-aware predictions (**REAL / FAKE / UNCERTAIN**)
+* 🌐 Interactive web UI using **Gradio**
+* 🧪 Dummy dataset generation for quick testing
 
- Confidence-aware predictions (REAL / FAKE / UNCERTAIN)
+---
 
- Interactive Web UI using Gradio
+## 📸 Project Demo (UI Screenshots)
 
- Dummy dataset generation for quick testing
+<p align="center">
+  <img src="Screenshot%202025-12-20%20005434.png" width="45%" />
+  <img src="Screenshot%202025-12-19%20203755.png" width="45%" />
+  <img src="Screenshot%202025-12-29%20181830.png" width="45%" />
+</p>
 
-Lightweight-DeepFake-Detection-Model/
+**Left → Right:** Upload Interface • Image Preview • Prediction Result with Confidence
+
+---
+
+## 🗂️ Project Structure
+
+```
+Lightweight-DeepFake-Detection-System/
 │
 ├── models/
 │   └── deepfake_cnn.pth              # Trained CNN model weights
@@ -44,41 +57,68 @@ Lightweight-DeepFake-Detection-Model/
 ├── requirements.txt                  # Project dependencies
 ├── README.md                         # Project documentation
 └── .venv/                            # Virtual environment (ignored)
+```
 
+---
 
 ## 🧠 Model Architecture
 
-A lightweight CNN with:
+A lightweight **Convolutional Neural Network (CNN)** consisting of:
 
-2 Convolutional layers
+* 2 × Convolutional layers
+* ReLU activation functions
+* MaxPooling layers
+* Fully connected classifier (2 classes: **REAL / FAKE**)
 
-ReLU activations
+### 🎯 Design Goals
 
-MaxPooling
+* Fast inference
+* Low computational overhead
+* Easy deployment on low-resource systems
 
-Fully connected classifier (2 classes: REAL / FAKE)
+---
 
-The model is intentionally lightweight for:
-Fast inference
-Low compute usage
-Easy deployment
+## 🧪 Prediction Logic
 
-🧪 Prediction Logic
+The model outputs probabilities for both classes:
 
-## The model outputs probabilities for both classes:
+* **REAL probability**
+* **FAKE probability**
 
-REAL probability
+### Decision Rules
 
-FAKE probability
+* **REAL ✅** → confidence > threshold
+* **FAKE ❌** → confidence > threshold
+* **UNCERTAIN 🤔** → confidence below threshold
 
-Decision logic:
+> ⚠️ The **UNCERTAIN** class is intentional to reduce false positives when the model is not confident.
 
-REAL ✅ → confidence > threshold
 
-FAKE ❌ → confidence > threshold
 
-UNCERTAIN 🤔 → low confidence
+---
 
-### ⚠️ The UNCERTAIN class is intentional to avoid false predictions when confidence is low.
+## 📌 Use Cases
 
-http://127.0.0.1:7860/ 
+* DeepFake detection in facial images
+* Educational demos for AI & Computer Vision
+* Internship / hiring challenge submissions
+* Research prototypes for media authenticity
+
+---
+
+## 🔮 Future Improvements
+
+* Full video-level DeepFake detection
+* Advanced architectures (EfficientNet / Vision Transformers)
+* Explainable AI (Grad-CAM visualizations)
+* Cloud deployment
+
+---
+
+## 👤 Author
+
+**Samta Sakha**
+*Data Science & AI Enthusiast*
+
+
+
