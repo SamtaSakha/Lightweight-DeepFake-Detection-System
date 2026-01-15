@@ -118,6 +118,7 @@ The model outputs probabilities for both classes:
 ## 👤 Author
 
 **Samta Sakha**
+<br>
 *Data Science & AI Enthusiast*
 
 
